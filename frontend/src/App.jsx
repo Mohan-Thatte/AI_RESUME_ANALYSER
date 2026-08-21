@@ -29,7 +29,8 @@ function App() {
     formData.append('job_description', jobDescription)
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/match', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+      const response = await fetch(`${API_URL}/api/match`, {
         method: 'POST',
         body: formData,
       })
